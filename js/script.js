@@ -24,6 +24,8 @@ class Automobile {
    }
  }
 
+
+ 
 function testAutomobile(){
    const autos = [];
    autos.push(new Automobile('BMV', 'X5 E70', 2012, 97));
