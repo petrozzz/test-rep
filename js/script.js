@@ -25,7 +25,7 @@ class Automobile {
  }
 
 
- 
+
 function testAutomobile(){
    const autos = [];
    autos.push(new Automobile('BMV', 'X5 E70', 2012, 97));
@@ -62,6 +62,45 @@ class Fraction{
       this.den *= fr.den;      
       this.simplify();      
    }
+
+   minus(fr){
+      if (!(fr instanceof Fraction)){
+         fr = new Fraction(fr, 1);
+      }
+      this.nom = this.nom * fr.den - this.den * fr.nom;
+      this.den *= fr.den;      
+      this.simplify();
+   }
+
+   mult(fr){
+      if (!(fr instanceof Fraction)){
+         fr = new Fraction(fr, 1);
+      }
+      this.nom *= fr.nom;
+      this.den *= fr.den;      
+      this.simplify();
+   }
+
+   divide(fr){
+      if (!(fr instanceof Fraction)){
+         fr = new Fraction(fr, 1);
+      }
+      this.nom *= fr.den;
+      this.den *= fr.nom;      
+      this.simplify();
+   }
+
+   toString(){
+      return `${this.nom}/${this.den}`;
+   }
+}
+
+function testFraction(){
+   let a1 = new Fraction(1,3);
+   let a2 = new Fraction(7,8);
+   let a3 = new Fraction(a1.nom, a1.den);
+   a3.add(a2);
+   console.log(`${a1.toString()} + ${a2.toString()} = ${a3.toString()}`);
 }
 // TODO 1: end 
 
@@ -92,7 +131,7 @@ function myMain(){
    }
    
    testAutomobile();
-
+   testFraction();
    
 }
 
